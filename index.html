@@ -4,48 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy New Year 2025</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <style>
         body {
             margin: 0;
+            overflow: hidden; /* ซ่อน scrollbar */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(to bottom, black, white);
-            animation: gradient-animation 10s ease infinite alternate;
-            font-family: sans-serif; /* เพิ่ม font-family เพื่อความสวยงาม */
+            min-height: 100vh; /* ให้เต็มหน้าจอ */
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite; /* เพิ่ม animation ให้พื้นหลัง */
         }
 
-        @keyframes gradient-animation {
+        @keyframes gradient {
             0% {
-                background: linear-gradient(to bottom, black, white);
+                background-position: 0% 50%;
             }
             50% {
-                background: linear-gradient(to bottom, #333, #ddd);
+                background-position: 100% 50%;
             }
             100% {
-                background: linear-gradient(to bottom, black, white);
+                background-position: 0% 50%;
             }
         }
 
-        .text-container {
+        .title-container {
             text-align: center;
-            text-shadow: 3px 3px 5px rgba(0,0,0,0.5); /* เงา 3D */
-        }
-        .text-container h1 {
-          font-size: 4em;
-          color: gold;
-          text-shadow: 
-            2px 2px 4px rgba(0, 0, 0, 0.5), /* เงาด้านหลัง */
-            -2px -2px 4px rgba(255, 255, 255, 0.3); /* ไฮไลท์เล็กน้อย */
-          font-weight: bold;
+            position: relative;
         }
 
+        .title {
+             font-size: 4rem;
+             font-weight: bold;
+             color: #ffd700; /* สีทอง */
+             text-shadow: 2px 2px 4px #333,
+                         4px 4px 8px #444,
+                         6px 6px 12px #555;
+             position: relative;
+             display: inline-block;
+         }
+         .button-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .my-button {
+            background-color: #c2f0c2; /* สีเขียวพาสเทล */
+            color: #000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px #888;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .my-button:hover {
+            background-color: #b1e0b1;
+            box-shadow: 1px 1px 2px #888;
+            transform: translateY(2px);
+            opacity: 0.8;
+        }
+        
     </style>
 </head>
 <body>
-    <div class="text-container">
-        <h1>Happy New Year 2025</h1>
+    <div class="title-container">
+         <h1 class="title">Happy New Year 2025</h1>
+         <div class="button-container">
+            <button class="my-button" id="myButton">ดูผลงาน</button>
+        </div>
     </div>
+   
+    <script>
+        // ฟังก์ชันสร้างสี RGB แบบสุ่ม
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // ตั้งค่าพื้นหลังแบบ gradient เคลื่อนไหว
+        function setBackgroundGradient() {
+            let colors = [];
+            for (let i = 0; i < 20; i++) {  // เพิ่มจำนวนสีในการไล่ระดับ
+                colors.push(getRandomColor());
+            }
+            document.body.style.background = `linear-gradient(45deg, ${colors.join(', ')})`;
+        }
+
+        setBackgroundGradient();
+        setInterval(setBackgroundGradient, 5000); // เปลี่ยนสีพื้นหลังทุกๆ 5 วินาที
+
+        // ฟังก์ชันเมื่อคลิกปุ่ม
+        document.getElementById('myButton').addEventListener('click', function() {
+            window.location.href = "https://sites.google.com/view/my-work-th/";
+        });
+    </script>
 </body>
 </html>
