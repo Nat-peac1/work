@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>สวัสดีปีใหม่ 2025</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="icon" href="https://nat-peac1.github.io/llama33/5b9c40cd.รูป1.154535.png" type="image/png">
     <style>
         body {
             margin: 0;
@@ -13,6 +14,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh; /* ให้เต็มหน้าจอ */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite; /* เพิ่ม animation ให้พื้นหลัง */
         }
@@ -68,6 +70,8 @@
             box-shadow: 1px 1px 2px #888;
             transform: perspective(1000px) rotateY(10deg) scale(1.1);
             opacity: 0.8;
+            border: 2px solid #fff;
+            animation: border-animation 2s linear infinite;
         }
         
         .my-button:active {
@@ -75,22 +79,22 @@
             box-shadow: 0px 0px 0px #888;
         }
         
-        .my-button:after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            border-radius: 8px;
-            opacity: 0.2;
-            transition: all 0.2s ease;
-        }
-        
-        .my-button:hover:after {
-            opacity: 0.5;
+        @keyframes border-animation {
+            0% {
+                border-color: #fff;
+            }
+            25% {
+                border-color: #ff0;
+            }
+            50% {
+                border-color: #f0f;
+            }
+            75% {
+                border-color: #0ff;
+            }
+            100% {
+                border-color: #fff;
+            }
         }
         
     </style>
@@ -104,26 +108,6 @@
     </div>
    
     <script>
-        // ฟังก์ชันสร้างสี RGB แบบสุ่ม
-        function getRandomColor() {
-            const r = Math.floor(Math.random() * 256);
-            const g = Math.floor(Math.random() * 256);
-            const b = Math.floor(Math.random() * 256);
-            return `rgb(${r}, ${g}, ${b})`;
-        }
-
-        // ตั้งค่าพื้นหลังแบบ gradient เคลื่อนไหว
-        function setBackgroundGradient() {
-            let colors = [];
-            for (let i = 0; i < 20; i++) {  // เพิ่มจำนวนสีในการไล่ระดับ
-                colors.push(getRandomColor());
-            }
-            document.body.style.background = `linear-gradient(45deg, ${colors.join(', ')})`;
-        }
-
-        setBackgroundGradient();
-        setInterval(setBackgroundGradient, 5000); // เปลี่ยนสีพื้นหลังทุกๆ 5 วินาที
-
         // ฟังก์ชันเมื่อคลิกปุ่ม
         document.getElementById('myButton').addEventListener('click', function() {
             window.location.href = "https://sites.google.com/view/my-work-th/";
